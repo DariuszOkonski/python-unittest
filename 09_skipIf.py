@@ -9,3 +9,7 @@ class TestClass(unittest.TestCase):
     @unittest.skipIf(date.today().day % 2 == 0, 'keeping odd days')
     def test_case_2(self):
         self.assertEqual('aws'.upper(), 'AWS')
+
+    @unittest.skipIf(date.today().day % 2 != 0, 'keeping even days')
+    def test_case_3(self):
+        self.assertEqual('aws'.upper(), 'AWS')
