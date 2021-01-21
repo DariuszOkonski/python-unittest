@@ -10,13 +10,22 @@ class TestClass1(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        print('setting up TestClass1')
+        print('setting up TestClass1: ', cls.__name__)
 
     @classmethod
     def tearDownClass(cls) -> None:
-        print('trearing down TestClass1')
+        print('trearing down TestClass1: ', cls.__name__)
+
+    def setUp(self) -> None:
+        print('setting up...')
+
+    def tearDown(self) -> None:
+        print('tearing down...')
 
     def test_case_1(self):
+        self.assertEqual('John Smith'.split(), ['John', 'Smith'])
+
+    def test_case_2(self):
         self.assertEqual('John Smith'.split(), ['John', 'Smith'])
 
 class TestClass2(unittest.TestCase):
